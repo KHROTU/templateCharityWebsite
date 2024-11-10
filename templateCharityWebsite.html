@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Eat Children</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin: 1em 0;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.5s both;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero button {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 1s both;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero button:hover {
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-us {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+            animation: fadeIn 1s ease;
+        }
+
+        .about-us h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-us p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .about-us button {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 1s ease 1s both;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-us button:hover {
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .services {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            animation: fadeIn 1s ease;
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin: 1em;
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 1em;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+        }
+
+        .service-card p {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .service-card button {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 1s ease 1s both;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card button:hover {
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonials {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+            animation: fadeIn 1s ease;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin: 1em;
+            display: inline-block;
+            width: 45%;
+            vertical-align: top;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card p {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            margin-top: 1em;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 4em 2em;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 1em;
+            margin: 1em 0;
+            border: none;
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .contact button {
+            background: white;
+            color: #4CAF50;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact button:hover {
+            background: #f4f4f4;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+            animation: fadeIn 1s ease;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #45a049;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* New Styles */
+        .gallery {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            animation: fadeIn 1s ease;
+        }
+
+        .gallery h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item {
+            display: inline-block;
+            margin: 1em;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .gallery-item img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .video-section {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+            animation: fadeIn 1s ease;
+        }
+
+        .video-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .newsletter {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            animation: fadeIn 1s ease;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 1em;
+            margin: 1em 0;
+            border: none;
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter input:focus {
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter button {
+            background: white;
+            color: #4CAF50;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter button:hover {
+            background: #f4f4f4;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-media {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+            animation: fadeIn 1s ease;
+        }
+
+        .social-media h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-media a {
+            font-size: 2em;
+            color: #4CAF50;
+            margin: 0 0.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .social-media a:hover {
+            color: #45a049;
+            transform: scale(1.1);
+        }
+
+        .events {
+            padding: 4em 2em;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            animation: fadeIn 1s ease;
+        }
+
+        .events h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin: 1em;
+            display: inline-block;
+            width: 45%;
+            vertical-align: top;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease 0.5s both;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card h3 {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+        }
+
+        .event-card p {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .event-card button {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 1s ease 1s both;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card button:hover {
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>We Eat Children</h1>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>Helping Those in Need</h2>
+            <p>Join us in making a difference today!</p>
+            <button>Donate Now</button>
+            <button style="margin-left: 1em;">Learn More</button>
+        </div>
+    </section>
+
+    <section class="about-us">
+        <h2>About Us</h2>
+        <p>We are a non-profit organization dedicated to helping those in need. Our mission is to provide support and resources to communities around the world. With your help, we can make a significant impact.</p>
+        <button>Read Our Story</button>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <i class="fas fa-hands-helping"></i>
+            <h3>Community Support</h3>
+            <p>We provide essential support to local communities, including food, shelter, and education.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Healthcare</h3>
+            <p>Our healthcare initiatives ensure that everyone has access to medical care and resources.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Education</h3>
+            <p>We believe in the power of education. Our programs help children and adults gain the skills they need to succeed.</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What People Are Saying</h2>
+        <div class="testimonial-card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80" alt="Testimonial 1">
+            <p>"We Eat Children has made a huge difference in our community. Their support has been invaluable."</p>
+            <p class="author">- Jane Doe</p>
+        </div>
+        <div class="testimonial-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Testimonial 2">
+            <p>"I am so grateful for the support I received from We Eat Children. They truly care about their mission."</p>
+            <p class="author">- John Smith</p>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gallery 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80" alt="Gallery 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Gallery 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gallery 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80" alt="Gallery 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Gallery 6">
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2>Watch Our Latest Video</h2>
+        <div class="video-container">
+            <iframe src="https://vdse.bdstatic.com//192d9a98d782d9c74c96f09db9378d93.mp4?authorization=bce-auth-v1%2F40f207e648424f47b2e3dfbb1014b1a5%2F2021-07-12T02%3A14%3A24Z%2F-1%2Fhost%2F530146520a1c89fb727fbbdb8a0e0c98ec6995545" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <section class="social-media">
+        <h2>Follow Us on Social Media</h2>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </section>
+
+    <section class="events">
+        <h2>Upcoming Events</h2>
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Event 1">
+            <h3>Community Outreach</h3>
+            <p>Join us for a day of community service and support. We will be helping local families in need.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80" alt="Event 2">
+            <h3>Health Fair</h3>
+            <p>Our annual health fair is back! Come and get free health screenings and resources.</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Get in Touch</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 We Eat Children. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
